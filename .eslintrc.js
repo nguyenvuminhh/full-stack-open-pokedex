@@ -3,7 +3,8 @@ module.exports = {
   "env": {
     "browser": true,
     "es6": true,
-    "jest/globals": true
+    "jest/globals": true,
+    "node": true
   },
   "extends": [
     "eslint:recommended",
@@ -20,14 +21,15 @@ module.exports = {
     "react", "jest"
   ],
   "rules": {
+    "linebreak-style": "off",
     "indent": [
       "error",
         2
       ],
-    "linebreak-style": [
-      "error",
-      "unix"
-    ],
+    // "linebreak-style": [
+    //   "error",
+    //   "unix"
+    // ],
     "quotes": [
       "error",
       "single"
@@ -44,7 +46,7 @@ module.exports = {
     "arrow-spacing": [
       "error", { "before": true, "after": true }
     ],
-    "no-console": "error",
+    // "no-console": "error",
     "react/prop-types": 0
   }
 }
