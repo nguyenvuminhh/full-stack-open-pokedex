@@ -16,3 +16,5 @@ jobs:
         run: npm install
       - name: linting
         run: npm run lint
+      - name: testing
+        run: npm runt test
