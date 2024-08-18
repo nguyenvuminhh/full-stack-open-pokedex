@@ -17,4 +17,4 @@ jobs:
       - name: linting
         run: npm run lint
       - name: testing
-        run: npm runt test
+        run: npm run test
