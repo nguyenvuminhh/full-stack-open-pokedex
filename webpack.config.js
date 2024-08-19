@@ -44,6 +44,13 @@ module.exports = {
   devServer: {
     historyApiFallback: true,
     allowedHosts: 'all',
+    proxy: {
+      '/api': {
+        target: 'https://full-stack-open-pokedex-dm8j.onrender.com',  // Replace with your Render backend URL
+        pathRewrite: { '^/api': '' },     // Optional: remove /api prefix before forwarding
+        changeOrigin: true,              // Optional: ensure the origin of the request is set correctly
+      },
+    },
   },
   plugins: [
     new HtmlWebPackPlugin({
