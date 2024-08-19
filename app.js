@@ -16,5 +16,5 @@ app.get('/version', (req, res) => {
 
 app.listen(PORT, () => {
   console.log(`server started on port ${PORT}`)
-  console.log('Base url:' + (req.get('host')))
+  //console.log('Base url:' + (req.get('host')))
 })
