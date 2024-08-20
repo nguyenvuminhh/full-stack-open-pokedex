@@ -30,13 +30,14 @@ jobs:
       - name: deploy
         if: ${{github.event_name == 'push'}}
         run: curl https://api.render.com/deploy/srv-${{ secrets.RENDER_SERVICE_ID }}?key=${{ secrets.RENDER_API_KEY }}
+  
   release-tag:
     needs: [deployment-pipeline]
     runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v4
       - name: version bump
-        if: ${{github.event_name == 'push' && !contains(toJson(github.event.commits.*.message), '#skip')}}
+        if: ${{github.event_name == 'push' && !contains(toJson(github.event.commits.*.message), '#none')}}
         uses: anothrNick/github-tag-action@1.64.0
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
