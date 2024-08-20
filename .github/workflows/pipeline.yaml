@@ -31,7 +31,7 @@ jobs:
         if: ${{github.event_name == 'push'}}
         run: curl https://api.render.com/deploy/srv-${{ secrets.RENDER_SERVICE_ID }}?key=${{ secrets.RENDER_API_KEY }}
   release-tag:
-    need: [deployment-pipeline]
+    needs: [deployment-pipeline]
     runs-on: ubuntu-20.04
     steps:
       - name: version bump
