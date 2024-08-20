@@ -28,8 +28,9 @@ jobs:
       - name: building
         run: npm run build
       - name: deploy
-        if: ${{github.event_name == 'push'}}
+        if: ${{github.event_name == 'push' && !contains(toJson(github.event.commits.*.message), '#none')}}
         run: curl https://api.render.com/deploy/srv-${{ secrets.RENDER_SERVICE_ID }}?key=${{ secrets.RENDER_API_KEY }}
+  
   
   release-tag:
     needs: [deployment-pipeline]
